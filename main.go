@@ -21,7 +21,7 @@ func ping(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.Handle("/", http.FileServer(http.Dir("./")))
 	http.HandleFunc("/ping", ping)
-	addr := fmt.Sprintf("127.0.0.1:%d", port)
+	addr := fmt.Sprintf(":%d", port)
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		panic(err)
 	}
